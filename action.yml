@@ -66,6 +66,7 @@ runs:
             [WireGuard]
             ListenPort=$port
             PrivateKey=$private_key
+            DNS=$dns
 
             [WireGuardPeer]
             Endpoint=$endpoint
