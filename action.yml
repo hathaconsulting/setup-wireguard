@@ -161,6 +161,8 @@ runs:
               sudo tee ${resolv_file} <<< $(sed '/^nameserver/d' ${resolv_file})
               for d in ${dns//,/ }; do echo "nameserver ${d}" | sudo tee -a ${resolv_file}; done
             fi
+
+            sudo sysctl -w net.ipv4.ip_forward=1
             
             sudo wg set "$ifname" \
                 peer "$endpoint_public_key" \
